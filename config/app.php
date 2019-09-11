@@ -79,8 +79,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+    #'locale' => 'en',  验证规则错误提示本地化  中国本地
+    'locale' => 'cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -105,8 +105,9 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
-
-    'faker_locale' => 'en_US',
+    #faker 填充数据本地化
+    #'faker_locale' => 'en_US',
+    'faker_locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,6 +176,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * 自定义路由
+         */
+        Mews\Captcha\CaptchaServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //验证码路由别名
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 
